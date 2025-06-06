@@ -1,0 +1,48 @@
+import random 
+Keep_going=""
+print('Welcome to Lucky unicorn')
+print(' ')
+print('each spin is one dollar')
+print(' ')
+bank_acc_money =int(input('How much money would to like to play with 1 to 100 dollars '))
+  
+while Keep_going =="":   
+  if bank_acc_money >= 101:
+    print('not enough money in your account')
+  elif bank_acc_money <= 100:
+    input ('Lets start playing!, Press enter to spin!') 
+ 
+    animals = ['donkey', 'unicorn', 'horse','zebra']
+    animal = random.choice(animals)
+    
+    print(animal)
+    print(" ")  
+  if animal == 'unicorn':
+    bank_acc_money = bank_acc_money *2
+    print ("you won!:")
+    print(bank_acc_money)
+    print(" ")
+    
+  if animal == 'donkey':
+    bank_acc_money = bank_acc_money / 2
+    print("you lost half of your money")
+    print(bank_acc_money)
+    print(" ")
+    
+  if animal == 'horse':
+    bank_acc_money = bank_acc_money
+    print("nothing happened")
+    print(bank_acc_money)
+    print("")
+      
+  if animal == 'zebra':
+    bank_acc_money = bank_acc_money - 2
+    print("you lost two dollars")
+    print(bank_acc_money)
+    print(" ")
+      
+  if bank_acc_money >= 0:
+    keep_going = 'no'
+  if bank_acc_money < 0:
+    print("Game over")
+    keep_going = input("Press spacebar to resart")
