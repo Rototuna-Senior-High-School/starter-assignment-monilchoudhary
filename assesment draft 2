@@ -1,0 +1,30 @@
+import board
+import digitalio
+import time
+from adafruit_debouncer import Debouncer
+import analogio
+
+blue_led = digitalio.DigitalInOut(board.GP0)
+blue_led.direction = digitalio.Direction.OUTPUT
+
+button = digitalio.DigitalInOut(board.GP1)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+my_button = Debouncer(button_pin)
+
+start_button = time.monotonic()
+
+knob = analogio.AnalogIn(board.A0)
+blue = pwmio.PWMOut(board.GP0, frequency=1000)
+
+while True:
+    knob_value = knob.value
+    if knob_value < 10000 + 1:
+      blue.duty_cycle = knob_value*2
+
+while True:
+    if button.value is True:
+        blue_led.value = False
+    else:
+        blue_led.value = True
+if button.value True > 3 
